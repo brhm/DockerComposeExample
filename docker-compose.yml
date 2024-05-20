@@ -1,8 +1,15 @@
-version: '3.4'
+﻿version: '3.4'
 
 services:
   microservice01.api:
-    image: ${DOCKER_REGISTRY-}microservice01api
+    image: microservice01-image #brhmkskn/microservice01:${version}
+    container_name: microservice01api-container
     build:
-      context: .
-      dockerfile: MicroService01.Api/Dockerfile
+      context: . # Referans noktası. . Dockercompose dosyasının olduğu klasörü belirtir.
+      dockerfile: MicroService01.Api/Dockerfile    
+  microservice02.api:
+    image: microservice02-image #brhmkskn/microservice02:${version}
+    container_name: microservice02api-container
+    build:
+      context: . # Referans noktası. . Dockercompose dosyasının olduğu klasörü belirtir.
+      dockerfile: MicroService02.Api/Dockerfile
