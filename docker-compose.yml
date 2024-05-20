@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  microservice01.api:
+    image: ${DOCKER_REGISTRY-}microservice01api
+    build:
+      context: .
+      dockerfile: MicroService01.Api/Dockerfile
