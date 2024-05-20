@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  sqlserver:
+  sqlserver: 
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=Password123
@@ -11,13 +11,13 @@ services:
       - sqlserver_volume:/var/opt/mssql
   microservice01.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production #Development
       - ASPNETCORE_HTTP_PORTS=8080
     ports:
       - "5000:8080"
   microservice02.api:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production #Development
       - ASPNETCORE_HTTP_PORTS=8080
     ports:
       - "5010:8080"
