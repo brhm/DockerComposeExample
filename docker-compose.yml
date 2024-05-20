@@ -1,6 +1,8 @@
 ﻿version: '3.4'
 
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
   microservice01.api:
     image: microservice01-image #brhmkskn/microservice01:${version}
     container_name: microservice01api-container
@@ -13,3 +15,7 @@ services:
     build:
       context: . # Referans noktası. . Dockercompose dosyasının olduğu klasörü belirtir.
       dockerfile: MicroService02.Api/Dockerfile
+volumes:
+  sqlserver_volume: 
+#docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=yourStrong(!)Password" -e "MSSQL_PID=Evaluation" -p 1433:1433  
+# --name sqlpreview --hostname sqlpreview -d mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
